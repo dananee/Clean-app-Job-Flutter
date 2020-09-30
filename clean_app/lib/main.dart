@@ -1,3 +1,4 @@
+import 'package:clean_app/screens/step_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -8,6 +9,9 @@ class CleanApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        StepOne.id: (context) => StepOne(),
+      },
       theme: ThemeData(
         primaryColor: Colors.blueAccent,
         primaryColorDark: Colors.black,
@@ -77,7 +81,9 @@ class _HomePageState extends State<HomePage> {
         FlatButton(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, StepOne.id);
+            },
             padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 12.0),
             color: Colors.blue,
             child: Text(

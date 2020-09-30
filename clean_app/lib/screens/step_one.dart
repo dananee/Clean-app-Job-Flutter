@@ -11,28 +11,63 @@ class StepOne extends StatefulWidget {
 
 class _StepOneState extends State<StepOne> {
   int counter = 1;
-  bool on = true;
+  bool changeColor;
+  bool changeColor1;
+  bool changeColor2;
+
+  Color vaccumColor = Colors.grey[300];
+  Color broomColor = Colors.grey[300];
+  Color faucetColor = Colors.grey[300];
+
+  void getColorChange() {
+    if (changeColor == true) {
+      changeColor = false;
+    } else {
+      changeColor = true;
+      changeColor1 = false;
+    }
+  }
+
+  getColorChange1() {
+    if (changeColor1 == true) {
+      changeColor1 = false;
+    } else {
+      changeColor1 = true;
+    }
+  }
+
+  getColorChange2() {
+    if (changeColor2 == true) {
+      changeColor2 = false;
+    } else {
+      changeColor2 = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: drawer(),
       appBar: AppBar(
           centerTitle: true,
-          title: Row(
-            children: [
-              Container(
-                height: 35.0,
-                width: 30.0,
-                child: Image(
-                  image: ExactAssetImage("images/women.png"),
-                  fit: BoxFit.cover,
+          title: Align(
+            alignment: Alignment.center,
+            child: Row(
+              children: [
+                Container(
+                  height: 35.0,
+                  width: 30.0,
+                  child: Image(
+                    image: ExactAssetImage("images/women.png"),
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 10.0,
-              ),
-              Text("clean")
-            ],
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text("clean")
+              ],
+            ),
           )),
       body: bodyItems(),
     );
@@ -42,11 +77,14 @@ class _StepOneState extends State<StepOne> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          "Step 1 of 3",
-          style: GoogleFonts.poppins(
-            fontSize: 30.0,
-            fontWeight: FontWeight.w800,
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Text(
+            "Step 1 of 3",
+            style: GoogleFonts.poppins(
+              fontSize: 30.0,
+              fontWeight: FontWeight.w800,
+            ),
           ),
         ),
         Text(
@@ -55,13 +93,13 @@ class _StepOneState extends State<StepOne> {
               color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 45.0),
         ),
         SizedBox(
-          height: 40.0,
+          height: 25.0,
         ),
         Text(
           "How many bedRooms you want to clean?",
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
-            fontSize: 15.0,
+            fontSize: 16.0,
             fontWeight: FontWeight.w800,
           ),
         ),
@@ -69,7 +107,32 @@ class _StepOneState extends State<StepOne> {
           height: 20.0,
         ),
         centeredItem(),
-        extraAdd()
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Text(
+            "Extra To Add",
+            style: GoogleFonts.poppins(
+              fontSize: 20.0,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.only(top: 8.0, bottom: 20.0, left: 8, right: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              extraAdd(),
+              extraAdd1(),
+              extraAdd2(),
+            ],
+          ),
+        ),
+        Expanded(
+            // padding: EdgeInsets.only(top: 40.0),
+            child: Align(
+                alignment: Alignment.bottomCenter, child: flatButtonBottom())),
       ],
     );
   }
@@ -79,60 +142,68 @@ class _StepOneState extends State<StepOne> {
       mainAxisAlignment: MainAxisAlignment.center,
       // crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        FloatingActionButton(
-          heroTag: "btn1",
-          backgroundColor: Color(0xffd2d2d2),
-          elevation: 0.0,
-          onPressed: () {
-            setState(() {
-              if (counter <= 0) {
-                return counter = 1;
-              } else {
-                return counter -= 1;
-              }
-            });
-          },
-          child: Icon(
-            Icons.remove,
-            color: Colors.black,
-            size: 35.0,
+        Container(
+          height: 40.0,
+          width: 40.0,
+          child: FloatingActionButton(
+            heroTag: "btn1",
+            backgroundColor: Color(0xffd2d2d2),
+            elevation: 0.0,
+            onPressed: () {
+              setState(() {
+                if (counter <= 0) {
+                  return counter = 1;
+                } else {
+                  return counter -= 1;
+                }
+              });
+            },
+            child: Icon(
+              Icons.remove,
+              color: Colors.black,
+              size: 30.0,
+            ),
           ),
         ),
         SizedBox(
           width: 40,
         ),
         Container(
-          height: 80,
-          width: 80,
+          height: 60,
+          width: 60,
           decoration: BoxDecoration(
               color: Color(0xffd2d2d2),
-              borderRadius: BorderRadius.circular(80)),
+              borderRadius: BorderRadius.circular(40)),
           child: Center(
             child: Text('$counter',
                 style: GoogleFonts.poppins(
-                    fontSize: 40.0, fontWeight: FontWeight.bold)),
+                    fontSize: 35.0, fontWeight: FontWeight.bold)),
           ),
         ),
         SizedBox(
           width: 40,
         ),
-        FloatingActionButton(
-          heroTag: "btn2",
-          backgroundColor: Color(0xffd2d2d2),
-          elevation: 0.0,
-          onPressed: () {
-            setState(() {
-              if (counter <= 0) {
-                return counter = 1;
-              } else {
-                return counter += 1;
-              }
-            });
-          },
-          child: Icon(
-            Icons.add,
-            color: Colors.black,
-            size: 35.0,
+        Container(
+          height: 40.0,
+          width: 40.0,
+          child: FloatingActionButton(
+            heroTag: "btn2",
+            backgroundColor: Color(0xffd2d2d2),
+            elevation: 0.0,
+            onPressed: () {
+              setState(() {
+                if (counter <= 0) {
+                  return counter = 1;
+                } else {
+                  return counter += 1;
+                }
+              });
+            },
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 30.0,
+            ),
           ),
         ),
       ],
@@ -141,11 +212,7 @@ class _StepOneState extends State<StepOne> {
 
   Widget drawer() {
     return Drawer(
-      // Add a ListView to the drawer. This ensures the user can scroll
-      // through the options in the drawer if there isn't enough vertical
-      // space to fit everything.
       child: ListView(
-        // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
@@ -174,26 +241,136 @@ class _StepOneState extends State<StepOne> {
   }
 
   Widget extraAdd() {
-    return InkWell(
-      onTap: () {
+    return FlatButton(
+      onPressed: () {
         setState(() {
-          on = true;
+          getColorChange();
         });
       },
+      color: changeColor ? Colors.yellow : Colors.grey[300],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
       child: Container(
-        height: 100,
-        width: 80,
-        decoration: BoxDecoration(
-          color: on == true ? Colors.yellow : Colors.grey,
-          borderRadius: BorderRadius.circular(30),
-          image: DecorationImage(
-            alignment: Alignment.center,
-
-            image: ExactAssetImage("images/pump.png"),
-            // fit: BoxFit.cover
-          ),
+        // margin: EdgeInsets.all(10.0),
+        height: 150,
+        width: 95,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
+              child: Image(
+                image: ExactAssetImage("images/pump.png"),
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * .1,
+                width: MediaQuery.of(context).size.height * .1,
+              ),
+            ),
+            Text(
+              "Lounge Room",
+              style: GoogleFonts.poppins(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Widget extraAdd1() {
+    return FlatButton(
+      onPressed: () {
+        setState(() {
+          getColorChange1();
+        });
+      },
+      color: changeColor1 ? Colors.yellow : Colors.grey[300],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Container(
+        // margin: EdgeInsets.all(10.0),
+        height: 150,
+        width: 95,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
+              child: Image(
+                image: ExactAssetImage("images/pump.png"),
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * .1,
+                width: MediaQuery.of(context).size.height * .1,
+              ),
+            ),
+            Text(
+              "Lounge Room",
+              style: GoogleFonts.poppins(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget extraAdd2() {
+    return FlatButton(
+      onPressed: () {
+        setState(() {
+          getColorChange2();
+        });
+      },
+      color: changeColor2 ? Colors.yellow : Colors.grey[300],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Container(
+        height: 150,
+        width: 95,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
+              child: Image(
+                image: ExactAssetImage("images/pump.png"),
+                fit: BoxFit.contain,
+                height: MediaQuery.of(context).size.height * .1,
+                width: MediaQuery.of(context).size.height * .1,
+              ),
+            ),
+            Text(
+              "Lounge Room",
+              style: GoogleFonts.poppins(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget flatButtonBottom() {
+    return Container(
+      height: MediaQuery.of(context).size.height * .12,
+      width: MediaQuery.of(context).size.width,
+      child: FlatButton(
+          color: Colors.blue,
+          onPressed: () {},
+          child: Text(
+            'Next > Step 2',
+            style: GoogleFonts.poppins(
+              fontSize: 30.0,
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+          )),
     );
   }
 }
