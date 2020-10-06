@@ -63,7 +63,7 @@ class _SigninPageState extends State<SigninPage> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             onPressed: () {
-              Navigator.pushNamed(context, StepOne.id);
+              Navigator.pushNamed(context, StepTwo.id);
             },
             padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 12.0),
             color: Colors.blue,

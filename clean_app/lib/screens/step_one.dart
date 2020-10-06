@@ -1,5 +1,9 @@
+import 'package:clean_app/screens/constante/navigators.dart';
+import 'package:clean_app/screens/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'constante/darwer.dart';
 
 class StepOne extends StatefulWidget {
   static String id = "StepOne";
@@ -11,9 +15,9 @@ class StepOne extends StatefulWidget {
 
 class _StepOneState extends State<StepOne> {
   int counter = 1;
-  bool changeColor;
-  bool changeColor1;
-  bool changeColor2;
+  bool changeColor = false;
+  bool changeColor1 = false;
+  bool changeColor2 = false;
 
   Color vaccumColor = Colors.grey[300];
   Color broomColor = Colors.grey[300];
@@ -69,7 +73,7 @@ class _StepOneState extends State<StepOne> {
               ],
             ),
           )),
-      body: bodyItems(),
+      body: SafeArea(child: bodyItems()),
     );
   }
 
@@ -117,9 +121,7 @@ class _StepOneState extends State<StepOne> {
             ),
           ),
         ),
-        Padding(
-          padding:
-              const EdgeInsets.only(top: 8.0, bottom: 20.0, left: 8, right: 8),
+        Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -132,7 +134,22 @@ class _StepOneState extends State<StepOne> {
         Expanded(
             // padding: EdgeInsets.only(top: 40.0),
             child: Align(
-                alignment: Alignment.bottomCenter, child: flatButtonBottom())),
+          alignment: Alignment.bottomCenter,
+          child: FlatButton(
+              color: Colors.blue,
+              onPressed: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    StepTwo.id, (Route<dynamic> route) => false);
+              },
+              child: Text(
+                'Next > Step 2',
+                style: GoogleFonts.poppins(
+                  fontSize: 30.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
+              )),
+        ))
       ],
     );
   }
@@ -207,36 +224,6 @@ class _StepOneState extends State<StepOne> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget drawer() {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(
-            child: Text('Drawer Header'),
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-          ),
-          ListTile(
-            title: Text('Item 1'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-          ListTile(
-            title: Text('Item 2'),
-            onTap: () {
-              // Update the state of the app.
-              // ...
-            },
-          ),
-        ],
-      ),
     );
   }
 
@@ -353,24 +340,6 @@ class _StepOneState extends State<StepOne> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget flatButtonBottom() {
-    return Container(
-      height: MediaQuery.of(context).size.height * .12,
-      width: MediaQuery.of(context).size.width,
-      child: FlatButton(
-          color: Colors.blue,
-          onPressed: () {},
-          child: Text(
-            'Next > Step 2',
-            style: GoogleFonts.poppins(
-              fontSize: 30.0,
-              color: Colors.white,
-              fontWeight: FontWeight.w700,
-            ),
-          )),
     );
   }
 }

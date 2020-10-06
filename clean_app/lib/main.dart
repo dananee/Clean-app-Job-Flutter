@@ -1,4 +1,5 @@
 import 'package:clean_app/screens/step_one.dart';
+import 'package:clean_app/screens/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,7 @@ class CleanApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         StepOne.id: (context) => StepOne(),
+        StepTwo.id: (context) => StepTwo(),
       },
       theme: ThemeData(
         primaryColor: Colors.blueAccent,
