@@ -1,9 +1,9 @@
-import 'package:clean_app/screens/constante/navigators.dart';
+import 'package:clean_app/constante/navigators.dart';
 import 'package:clean_app/screens/steps/step_one.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constante/darwer.dart';
+import 'package:clean_app/constante/darwer.dart';
 
 class StepTwo extends StatefulWidget {
   static String id = "StepTwo";
@@ -25,8 +25,8 @@ class _StepTwoState extends State<StepTwo> {
             child: Row(
               children: [
                 Container(
-                  height: 35.0,
-                  width: 30.0,
+                  height: 30.0,
+                  width: 25.0,
                   child: Image(
                     image: ExactAssetImage("images/women.png"),
                     fit: BoxFit.cover,

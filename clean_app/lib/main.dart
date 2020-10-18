@@ -21,7 +21,7 @@ class CleanApp extends StatelessWidget {
         primaryColorDark: Colors.black,
       ),
       debugShowCheckedModeBanner: false,
-      home: SignUpPage(),
+      home: StepOne(),
     );
   }
 }

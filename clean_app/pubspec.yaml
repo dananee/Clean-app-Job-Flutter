@@ -50,6 +50,8 @@ flutter:
   assets:
     - images/women.png
     - images/pump.png
+    - images/shtaba.png
+    - images/robini.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

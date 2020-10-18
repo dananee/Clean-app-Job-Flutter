@@ -1,9 +1,9 @@
-import 'package:clean_app/screens/constante/navigators.dart';
+import 'package:clean_app/constante/navigators.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constante/darwer.dart';
+import 'package:clean_app/constante/darwer.dart';
 
 class StepOne extends StatefulWidget {
   static String id = "StepOne";
@@ -73,16 +73,17 @@ class _StepOneState extends State<StepOne> {
               ],
             ),
           )),
-      body: SafeArea(child: bodyItems()),
+      body: SafeArea(child: Center(child: bodyItems())),
     );
   }
 
   Widget bodyItems() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 20.0),
+          padding: const EdgeInsets.only(top: 35.0),
           child: Text(
             "Step 1 of 3",
             style: GoogleFonts.poppins(
@@ -97,7 +98,7 @@ class _StepOneState extends State<StepOne> {
               color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 45.0),
         ),
         SizedBox(
-          height: 25.0,
+          height: 30.0,
         ),
         Text(
           "How many bedRooms you want to clean?",
@@ -108,11 +109,11 @@ class _StepOneState extends State<StepOne> {
           ),
         ),
         SizedBox(
-          height: 20.0,
+          height: 30.0,
         ),
         centeredItem(),
         Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(top: 20.0),
           child: Text(
             "Extra To Add",
             style: GoogleFonts.poppins(
@@ -131,25 +132,28 @@ class _StepOneState extends State<StepOne> {
             ],
           ),
         ),
-        Expanded(
-            // padding: EdgeInsets.only(top: 40.0),
-            child: Align(
-          alignment: Alignment.bottomCenter,
-          child: FlatButton(
+        InkWell(
+          onTap: () {
+            Navigator.of(context).pushNamedAndRemoveUntil(
+                StepTwo.id, (Route<dynamic> route) => false);
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height * .1,
+            decoration: BoxDecoration(
               color: Colors.blue,
-              onPressed: () {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    StepTwo.id, (Route<dynamic> route) => false);
-              },
-              child: Text(
-                'Next > Step 2',
-                style: GoogleFonts.poppins(
-                  fontSize: 30.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                ),
-              )),
-        ))
+            ),
+            child: Center(
+                child: Text(
+              'Next > Step 2',
+              style: GoogleFonts.poppins(
+                fontSize: 30.0,
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+              ),
+            )),
+          ),
+        )
       ],
     );
   }
@@ -236,12 +240,12 @@ class _StepOneState extends State<StepOne> {
       },
       color: changeColor ? Colors.yellow : Colors.grey[300],
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(40),
       ),
       child: Container(
         // margin: EdgeInsets.all(10.0),
-        height: 150,
-        width: 95,
+        height: 140,
+        width: 85,
         child: Column(
           children: [
             Padding(
@@ -275,25 +279,25 @@ class _StepOneState extends State<StepOne> {
       },
       color: changeColor1 ? Colors.yellow : Colors.grey[300],
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(40),
       ),
       child: Container(
         // margin: EdgeInsets.all(10.0),
-        height: 150,
-        width: 95,
+        height: 140,
+        width: 85,
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
               child: Image(
-                image: ExactAssetImage("images/pump.png"),
+                image: ExactAssetImage("images/shtaba.png"),
                 fit: BoxFit.contain,
                 height: MediaQuery.of(context).size.height * .1,
                 width: MediaQuery.of(context).size.height * .1,
               ),
             ),
             Text(
-              "Lounge Room",
+              "Kitchen",
               style: GoogleFonts.poppins(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w700,
@@ -314,24 +318,22 @@ class _StepOneState extends State<StepOne> {
       },
       color: changeColor2 ? Colors.yellow : Colors.grey[300],
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(40),
       ),
       child: Container(
-        height: 150,
-        width: 95,
+        height: 140,
+        width: 85,
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
               child: Image(
-                image: ExactAssetImage("images/pump.png"),
-                fit: BoxFit.contain,
-                height: MediaQuery.of(context).size.height * .1,
-                width: MediaQuery.of(context).size.height * .1,
+                image: ExactAssetImage("images/robini.png"),
+                fit: BoxFit.cover,
               ),
             ),
             Text(
-              "Lounge Room",
+              "Bathroom",
               style: GoogleFonts.poppins(
                 fontSize: 12.0,
                 fontWeight: FontWeight.w700,

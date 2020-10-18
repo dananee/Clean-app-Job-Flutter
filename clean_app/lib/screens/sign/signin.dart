@@ -1,3 +1,4 @@
+import 'package:clean_app/screens/sign/signup_page.dart';
 import 'package:clean_app/screens/steps/step_one.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
@@ -135,7 +136,9 @@ class _SigninPageState extends State<SigninPage> {
           ),
           InkWell(
             onTap: () {
-              print("hhhh");
+              Navigator.of(context).push(MaterialPageRoute(builder: (cotext) {
+                return SignUpPage();
+              }));
             },
             child: Text(
               " Register Here",

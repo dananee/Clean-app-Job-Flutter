@@ -1,3 +1,4 @@
+import 'package:clean_app/screens/sign/signin.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -98,7 +99,9 @@ class _SignUpPageState extends State<SignUpPage> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             onPressed: () {
-              Navigator.pushNamed(context, StepTwo.id);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return SigninPage();
+              }));
             },
             padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 15.0),
             color: Colors.blue,
