@@ -1,9 +1,9 @@
 import 'package:clean_app/screens/constante/navigators.dart';
-import 'package:clean_app/screens/step_two.dart';
+import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'constante/darwer.dart';
+import '../constante/darwer.dart';
 
 class StepOne extends StatefulWidget {
   static String id = "StepOne";
