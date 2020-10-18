@@ -14,6 +14,7 @@ class _SigninPageState extends State<SigninPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: footer(),
       backgroundColor: Colors.yellow,
       body: SingleChildScrollView(
         child: Column(
@@ -23,7 +24,6 @@ class _SigninPageState extends State<SigninPage> {
                 height: MediaQuery.of(context).size.height * .9,
                 width: double.infinity,
                 child: bodyForms()),
-            footer(),
           ],
         ),
       ),
@@ -65,7 +65,7 @@ class _SigninPageState extends State<SigninPage> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             onPressed: () {
-              Navigator.pushNamed(context, StepTwo.id);
+              Navigator.pushNamed(context, StepOne.id);
             },
             padding: EdgeInsets.symmetric(horizontal: 120.0, vertical: 12.0),
             color: Colors.blue,

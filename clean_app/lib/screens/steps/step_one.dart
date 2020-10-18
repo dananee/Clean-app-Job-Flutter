@@ -1,4 +1,6 @@
+import 'package:clean_app/constante/bottom_button.dart';
 import 'package:clean_app/constante/navigators.dart';
+import 'package:clean_app/main.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,7 +30,6 @@ class _StepOneState extends State<StepOne> {
       changeColor = false;
     } else {
       changeColor = true;
-      changeColor1 = false;
     }
   }
 
@@ -82,14 +83,14 @@ class _StepOneState extends State<StepOne> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 35.0),
-          child: Text(
-            "Step 1 of 3",
-            style: GoogleFonts.poppins(
-              fontSize: 30.0,
-              fontWeight: FontWeight.w800,
-            ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * .02,
+        ),
+        Text(
+          "Step 1 of 3",
+          style: GoogleFonts.poppins(
+            fontSize: 30.0,
+            fontWeight: FontWeight.w800,
           ),
         ),
         Text(
@@ -98,7 +99,7 @@ class _StepOneState extends State<StepOne> {
               color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 45.0),
         ),
         SizedBox(
-          height: 30.0,
+          height: MediaQuery.of(context).size.height * .05,
         ),
         Text(
           "How many bedRooms you want to clean?",
@@ -109,17 +110,17 @@ class _StepOneState extends State<StepOne> {
           ),
         ),
         SizedBox(
-          height: 30.0,
+          height: MediaQuery.of(context).size.height * .05,
         ),
         centeredItem(),
-        Padding(
-          padding: const EdgeInsets.only(top: 20.0),
-          child: Text(
-            "Extra To Add",
-            style: GoogleFonts.poppins(
-              fontSize: 20.0,
-              fontWeight: FontWeight.w700,
-            ),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * .02,
+        ),
+        Text(
+          "Extra To Add",
+          style: GoogleFonts.poppins(
+            fontSize: 20.0,
+            fontWeight: FontWeight.w700,
           ),
         ),
         Expanded(
@@ -132,28 +133,7 @@ class _StepOneState extends State<StepOne> {
             ],
           ),
         ),
-        InkWell(
-          onTap: () {
-            Navigator.of(context).pushNamedAndRemoveUntil(
-                StepTwo.id, (Route<dynamic> route) => false);
-          },
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * .1,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Center(
-                child: Text(
-              'Next > Step 2',
-              style: GoogleFonts.poppins(
-                fontSize: 30.0,
-                color: Colors.white,
-                fontWeight: FontWeight.w700,
-              ),
-            )),
-          ),
-        )
+        buttomButton(context, 1, StepTwo.id),
       ],
     );
   }
@@ -244,18 +224,16 @@ class _StepOneState extends State<StepOne> {
       ),
       child: Container(
         // margin: EdgeInsets.all(10.0),
-        height: 140,
-        width: 85,
+        height: MediaQuery.of(context).size.height * .2,
+        width: MediaQuery.of(context).size.height * .12,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
-              child: Image(
-                image: ExactAssetImage("images/pump.png"),
-                fit: BoxFit.contain,
-                height: MediaQuery.of(context).size.height * .1,
-                width: MediaQuery.of(context).size.height * .1,
-              ),
+            Image(
+              image: ExactAssetImage("images/pump.png"),
+              fit: BoxFit.contain,
+              height: MediaQuery.of(context).size.height * .1,
+              width: MediaQuery.of(context).size.height * .1,
             ),
             Text(
               "Lounge Room",
@@ -283,18 +261,16 @@ class _StepOneState extends State<StepOne> {
       ),
       child: Container(
         // margin: EdgeInsets.all(10.0),
-        height: 140,
-        width: 85,
+        height: MediaQuery.of(context).size.height * .2,
+        width: MediaQuery.of(context).size.height * .12,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
-              child: Image(
-                image: ExactAssetImage("images/shtaba.png"),
-                fit: BoxFit.contain,
-                height: MediaQuery.of(context).size.height * .1,
-                width: MediaQuery.of(context).size.height * .1,
-              ),
+            Image(
+              image: ExactAssetImage("images/shtaba.png"),
+              fit: BoxFit.contain,
+              height: MediaQuery.of(context).size.height * .1,
+              width: MediaQuery.of(context).size.height * .1,
             ),
             Text(
               "Kitchen",
@@ -321,16 +297,16 @@ class _StepOneState extends State<StepOne> {
         borderRadius: BorderRadius.circular(40),
       ),
       child: Container(
-        height: 140,
-        width: 85,
+        height: MediaQuery.of(context).size.height * .2,
+        width: MediaQuery.of(context).size.height * .12,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20.0, bottom: 15.0),
-              child: Image(
-                image: ExactAssetImage("images/robini.png"),
-                fit: BoxFit.cover,
-              ),
+            Image(
+              image: ExactAssetImage("images/robini.png"),
+              fit: BoxFit.contain,
+              height: MediaQuery.of(context).size.height * .1,
+              width: MediaQuery.of(context).size.height * .1,
             ),
             Text(
               "Bathroom",

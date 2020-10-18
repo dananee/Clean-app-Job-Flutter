@@ -13,6 +13,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: footer(),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -22,7 +23,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: MediaQuery.of(context).size.height * .9,
                 width: double.infinity,
                 child: bodyForms()),
-            footer(),
           ],
         ),
       ),
