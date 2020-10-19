@@ -1,5 +1,7 @@
+import 'package:clean_app/constante/appBar.dart';
 import 'package:clean_app/constante/bottom_button.dart';
 import 'package:clean_app/constante/navigators.dart';
+import 'package:clean_app/constante/title_icon.dart';
 import 'package:clean_app/main.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
@@ -52,28 +54,8 @@ class _StepOneState extends State<StepOne> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: drawer(),
-      appBar: AppBar(
-          centerTitle: true,
-          title: Align(
-            alignment: Alignment.center,
-            child: Row(
-              children: [
-                Container(
-                  height: 35.0,
-                  width: 30.0,
-                  child: Image(
-                    image: ExactAssetImage("images/women.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text("clean")
-              ],
-            ),
-          )),
+      drawer: drawer(context),
+      appBar: appBar(),
       body: SafeArea(child: Center(child: bodyItems())),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:clean_app/constante/footer_widget.dart';
+import 'package:clean_app/constante/form_widget.dart';
 import 'package:clean_app/screens/sign/signin.dart';
 import 'package:clean_app/screens/steps/step_two.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: footer(),
+      bottomNavigationBar: footer(context),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Column(
@@ -24,31 +26,6 @@ class _SignUpPageState extends State<SignUpPage> {
                 width: double.infinity,
                 child: bodyForms()),
           ],
-        ),
-      ),
-    );
-  }
-
-  Widget form(bool pwd, String label, TextInputType textInputType) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(30)),
-        child: TextField(
-          keyboardType: textInputType,
-          textAlign: TextAlign.center,
-          obscureText: pwd,
-          decoration: InputDecoration(
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-                borderSide: BorderSide(
-                    color: Colors.black, style: BorderStyle.solid, width: 20.0),
-                borderRadius: BorderRadius.circular(30)),
-            hintText: label,
-            hintStyle: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600, color: Colors.grey[400]),
-          ),
         ),
       ),
     );
@@ -114,69 +91,6 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             )),
       ],
-    );
-  }
-
-  Widget footer() {
-    return Container(
-      height: MediaQuery.of(context).size.height * .10,
-      width: double.infinity,
-      color: Colors.yellow,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "By registering, you agree all our",
-            textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
-                color: Colors.black,
-                fontSize: 10.0,
-                fontWeight: FontWeight.w800),
-          ),
-          SizedBox(
-            height: 6.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              InkWell(
-                onTap: () {
-                  print("hhhh");
-                },
-                child: Text(
-                  "terms",
-                  style: GoogleFonts.poppins(
-                      decoration: TextDecoration.underline,
-                      color: Colors.black,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-              Text(
-                " and ",
-                style: GoogleFonts.poppins(
-                    color: Colors.black,
-                    fontSize: 10.0,
-                    fontWeight: FontWeight.w800),
-              ),
-              InkWell(
-                onTap: () {
-                  print("hhhh");
-                },
-                child: Text(
-                  "conditions",
-                  style: GoogleFonts.poppins(
-                      decoration: TextDecoration.underline,
-                      color: Colors.black,
-                      fontSize: 10.0,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
     );
   }
 }

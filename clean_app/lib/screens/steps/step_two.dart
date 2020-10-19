@@ -1,3 +1,4 @@
+import 'package:clean_app/constante/appBar.dart';
 import 'package:clean_app/constante/bottom_button.dart';
 import 'package:clean_app/constante/navigators.dart';
 import 'package:clean_app/screens/steps/step_one.dart';
@@ -28,28 +29,8 @@ class _StepTwoState extends State<StepTwo> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: buttomButton(context, 2, null),
-      drawer: drawer(),
-      appBar: AppBar(
-          centerTitle: true,
-          title: Align(
-            alignment: Alignment.center,
-            child: Row(
-              children: [
-                Container(
-                  height: 30.0,
-                  width: 25.0,
-                  child: Image(
-                    image: ExactAssetImage("images/women.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Text("clean")
-              ],
-            ),
-          )),
+      drawer: drawer(context),
+      appBar: appBar(),
       body: SingleChildScrollView(child: SafeArea(child: bodyItems())),
     );
   }
