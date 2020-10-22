@@ -1,4 +1,5 @@
 import 'package:clean_app/constante/title_icon.dart';
+import 'package:clean_app/screens/history/job_history.dart';
 import 'package:clean_app/screens/promotions_page.dart';
 import 'package:clean_app/settings_page.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,11 @@ Widget drawer(context) {
             thickness: 0.7,
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                return JobHisto();
+              }));
+            },
             child: Padding(
               padding: EdgeInsets.only(
                   left: 60.0, bottom: 20.0, right: 50.0, top: 20.0),
