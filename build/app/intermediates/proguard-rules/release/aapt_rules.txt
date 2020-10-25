@@ -1,0 +1,6 @@
+# Referenced at /home/goldenskull/Documents/flutter/Clean-app-Job-Flutter/clean_app/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:17
+-keep class androidx.core.app.CoreComponentFactory { <init>(); }
+# Referenced at /home/goldenskull/Documents/flutter/Clean-app-Job-Flutter/clean_app/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:22
+-keep class com.example.clean_app.MainActivity { <init>(); }
+# Referenced at /home/goldenskull/Documents/flutter/Clean-app-Job-Flutter/clean_app/build/app/intermediates/merged_manifests/release/AndroidManifest.xml:17
+-keep class io.flutter.app.FlutterApplication { <init>(); }
